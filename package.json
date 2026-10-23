@@ -1,0 +1,14 @@
+{
+  "name": "kovasahko-modern",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Kovasähkö Oy - Modernisoitu verkkosivusto",
+  "scripts": {
+    "dev": "vite --host --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --port 3000"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

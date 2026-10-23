@@ -1,0 +1,62 @@
+:root {
+  /* Brand Copper Palette (Refined from original #b68252 & #c29a61) */
+  --brand-copper: #c48b52;
+  --brand-copper-light: #dfaa74;
+  --brand-copper-dark: #96602e;
+  --brand-copper-deep: #704217;
+  --brand-copper-glow: rgba(196, 139, 82, 0.25);
+  --brand-copper-subtle: rgba(196, 139, 82, 0.08);
+
+  /* Secondary Nord Slate & Electric Cyan Accent */
+  --brand-slate: #242933;
+  --brand-electric: #38bdf8;
+  --brand-success: #10b981;
+  --brand-success-bg: #ecfdf5;
+
+  /* Dark Theme Surfaces (Hero, Highlights, Footer) */
+  --bg-dark-900: #111316;
+  --bg-dark-800: #181b20;
+  --bg-dark-700: #22262d;
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-dark-copper: rgba(196, 139, 82, 0.35);
+  --text-dark-primary: #f8fafc;
+  --text-dark-secondary: #94a3b8;
+  --text-dark-muted: #64748b;
+
+  /* Fresh Bright Daylight Surfaces (Services, Calculator, FAQ, Info) */
+  --bg-light-100: #ffffff;
+  --bg-light-200: #f8f9fa;
+  --bg-light-300: #f1f3f5;
+  --bg-light-sand: #faf8f5;
+  --border-light: #e2e8f0;
+  --border-light-subtle: #edf2f7;
+  --text-light-primary: #0f172a;
+  --text-light-secondary: #475569;
+  --text-light-muted: #64748b;
+
+  /* Typography */
+  --font-heading: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Radii & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 35px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 30px rgba(196, 139, 82, 0.2);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout Containers */
+  --container-max: 1240px;
+  --container-pad: clamp(1rem, 4vw, 2.5rem);
+}
