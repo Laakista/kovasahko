@@ -2,6 +2,8 @@
 
 Modernisoitu, korkealaatuinen verkkosivusto Kovasähkö Oy:lle (Nokia & Pirkanmaa).
 
+🌐 **Julkinen esikatselu / Live:** [https://laakista.github.io/kovasahko/](https://laakista.github.io/kovasahko/)
+
 ## Ominaisuudet
 
 - **Moderni & arvokas brändi-ilme:** Hienostunut tumma/vaalea kontrastisuunnittelu, kuparin sävyt (`#c48b52`), responsiivinen typografia (Ubuntu & Plus Jakarta Sans).
