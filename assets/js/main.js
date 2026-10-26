@@ -36,20 +36,26 @@ function initHeaderScroll() {
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.mobile-menu-btn');
   const nav = document.querySelector('.main-nav');
-  const links = document.querySelectorAll('.nav-link');
-
   if (!toggleBtn || !nav) return;
 
   const toggle = (force) => {
     const isOpen = typeof force === 'boolean' ? force : !nav.classList.contains('active');
     nav.classList.toggle('active', isOpen);
+    toggleBtn.classList.toggle('active', isOpen);
     toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggleBtn.setAttribute('aria-label', isOpen ? 'Sulje valikko' : 'Avaa valikko');
+    document.body.classList.toggle('nav-open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   };
 
-  toggleBtn.addEventListener('click', () => toggle());
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggle();
+  });
 
-  links.forEach(link => {
+  // Close when tapping any link inside the navigation drawer
+  const allNavLinks = nav.querySelectorAll('a');
+  allNavLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
         toggle(false);
@@ -59,6 +65,13 @@ function initMobileMenu() {
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('active')) {
+      toggle(false);
+    }
+  });
+
+  // Close when clicking outside open drawer
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('active') && !nav.contains(e.target) && !toggleBtn.contains(e.target)) {
       toggle(false);
     }
   });
