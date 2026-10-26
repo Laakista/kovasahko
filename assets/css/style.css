@@ -314,6 +314,7 @@ h1, h2, h3, h4, .font-heading {
   padding: 6px 0;
   position: relative;
   transition: color var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -333,6 +334,10 @@ h1, h2, h3, h4, .font-heading {
 
 .nav-link:hover::after, .nav-link.active::after {
   width: 100%;
+}
+
+.mobile-nav-cta {
+  display: none;
 }
 
 .header-actions {
