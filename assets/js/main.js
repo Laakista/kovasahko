@@ -45,7 +45,6 @@ function initMobileMenu() {
     toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     toggleBtn.setAttribute('aria-label', isOpen ? 'Sulje valikko' : 'Avaa valikko');
     document.body.classList.toggle('nav-open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
   };
 
   toggleBtn.addEventListener('click', (e) => {
