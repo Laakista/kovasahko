@@ -425,12 +425,11 @@
 
         <!-- Sector Filter Tabs -->
         <div class="service-filter-nav" role="tablist" aria-label="Suodata palveluita">
-          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Kaikki palvelut
-            (12)</button>
+          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Kaikki</button>
+          <button class="filter-tab" data-filter="auto" role="tab" aria-selected="false">Auto</button>
           <button class="filter-tab" data-filter="energia" role="tab" aria-selected="false">Energia ja
             tilatekniikka</button>
-          <button class="filter-tab" data-filter="auto" role="tab" aria-selected="false">Auto</button>
-          <button class="filter-tab" data-filter="huolto" role="tab" aria-selected="false">Huolto ja kytkentä</button>
+          <button class="filter-tab" data-filter="huolto" role="tab" aria-selected="false">Asennus ja huolto</button>
           <button class="filter-tab" data-filter="tietoliikenne" role="tab" aria-selected="false">Tietoliikenne</button>
         </div>
 
@@ -1387,6 +1386,10 @@
                   <label for="form-palvelu" class="form-label">Kohteen tyyppi / Palvelu</label>
                   <select id="form-palvelu" name="palvelu" class="form-control">
                     <option value="" disabled selected>Valitse palvelu tai aihe...</option>
+                    <optgroup label="Auto">
+                      <option value="Sähköauton latausasema">Sähköauton latausasema</option>
+                      <option value="Lämmityspistorasiat ja tolpat">Lämmityspistorasiat ja tolpat</option>
+                    </optgroup>
                     <optgroup label="Energia &amp; tilatekniikka">
                       <option value="Aurinkopaneelijärjestelmä">Aurinkopaneelijärjestelmät</option>
                       <option value="Ilmalämpöpumput">Ilmalämpöpumput</option>
@@ -1395,11 +1398,7 @@
                       <option value="Valaistusratkaisut (sisällä ja ulkona)">Valaistusratkaisut (sisällä ja ulkona)
                       </option>
                     </optgroup>
-                    <optgroup label="Auto">
-                      <option value="Sähköauton latausasema">Sähköauton latausasema</option>
-                      <option value="Lämmityspistorasiat ja tolpat">Lämmityspistorasiat ja tolpat</option>
-                    </optgroup>
-                    <optgroup label="Huolto &amp; kytkentä">
+                    <optgroup label="Asennus &amp; huolto">
                       <option value="Sähkökeskuksen saneeraus">Sähkösaneeraukset ja keskusuudistukset</option>
                       <option value="Vikatilanteet ja huolto">Vikatilanteet ja huoltotyöt</option>
                       <option value="Laiteasennukset ja kytkentä">Laiteasennukset ja kytkentä</option>
