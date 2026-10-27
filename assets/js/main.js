@@ -150,7 +150,7 @@ function initCostCalculator() {
       formatVal: (val) => `${val} sulakeryhmää`
     },
     'ev-charger': {
-      title: 'Sähköauton latausasema',
+      title: 'Sähköauton lataus',
       unit: 'm kaapelointia',
       min: 5,
       max: 40,
@@ -165,7 +165,7 @@ function initCostCalculator() {
       formatVal: (val) => `${val} m kaapelointia`
     },
     'solar-system': {
-      title: 'Aurinkopaneelijärjestelmä',
+      title: 'Aurinkopaneelit',
       unit: 'kWp teho',
       min: 4,
       max: 16,
@@ -180,7 +180,7 @@ function initCostCalculator() {
       formatVal: (val) => `${val} kWp (n. ${Math.round(val * 2.25)} paneelia)`
     },
     'hourly-work': {
-      title: 'Muut sähkötyöt (ei tarvikekuluja)',
+      title: 'Asennus & huolto',
       unit: 'työtuntia',
       min: 2,
       max: 40,

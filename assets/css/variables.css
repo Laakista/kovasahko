@@ -23,13 +23,13 @@
   --text-dark-secondary: #94a3b8;
   --text-dark-muted: #64748b;
 
-  /* Fresh Bright Daylight Surfaces (Services, Calculator, FAQ, Info) */
+  /* Fresh Daylight Surfaces (Services, Calculator, FAQ, Info) */
   --bg-light-100: #ffffff;
-  --bg-light-200: #f8f9fa;
-  --bg-light-300: #f1f3f5;
-  --bg-light-sand: #faf8f5;
-  --border-light: #e2e8f0;
-  --border-light-subtle: #edf2f7;
+  --bg-light-200: #dde7f2; /* darker, tinted slightly to cool blue for Services, Process & FAQ */
+  --bg-light-300: #cfdce9;
+  --bg-light-sand: #e8d8c3; /* darker warm sand/brown, high contrast against white on all monitors */
+  --border-light: #c8d5e2;
+  --border-light-subtle: #dbe4ee;
   --text-light-primary: #0f172a;
   --text-light-secondary: #475569;
   --text-light-muted: #64748b;
