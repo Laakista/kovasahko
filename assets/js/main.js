@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
+  initBrandLogo();
   initServiceFilters();
   initCostCalculator();
   initContactForm();
@@ -28,6 +29,48 @@ function initHeaderScroll() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+/* ==========================================================================
+   Brand Logo & Smooth Scroll to Top (Clean URL)
+   ========================================================================== */
+function initBrandLogo() {
+  const brandLinks = document.querySelectorAll('.brand-link');
+  const nav = document.querySelector('.main-nav');
+  const toggleBtn = document.querySelector('.mobile-menu-btn');
+
+  // If page was loaded or refreshed with #koti or #hero, cleanly clear it from URL
+  if (window.location.hash === '#koti' || window.location.hash === '#hero') {
+    history.replaceState('', document.title, window.location.pathname + window.location.search);
+  }
+
+  brandLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Close mobile navigation drawer if open
+      if (nav && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        if (toggleBtn) {
+          toggleBtn.classList.remove('active');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.setAttribute('aria-label', 'Avaa valikko');
+        }
+        document.body.classList.remove('nav-open');
+      }
+
+      // Smooth scroll to the very top (revealing desktop top-bar)
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+      // Keep address bar clean without anchors (#koti / #hero)
+      if (window.location.hash) {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+    });
+  });
 }
 
 /* ==========================================================================

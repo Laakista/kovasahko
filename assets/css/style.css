@@ -1549,6 +1549,15 @@ textarea.form-control {
   border-bottom: 1px solid var(--border-dark);
 }
 
+.footer-brand-col .brand-link {
+  display: inline-flex;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-brand-col .brand-link:hover {
+  opacity: 0.85;
+}
+
 .footer-brand-col p {
   font-size: 0.9rem;
   color: var(--text-dark-muted);
