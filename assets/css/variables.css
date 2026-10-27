@@ -25,9 +25,9 @@
 
   /* Fresh Daylight Surfaces (Services, Calculator, FAQ, Info) */
   --bg-light-100: #ffffff;
-  --bg-light-200: #dde7f2; /* darker, tinted slightly to cool blue for Services, Process & FAQ */
+  --bg-light-200: #e7edf4; 
   --bg-light-300: #cfdce9;
-  --bg-light-sand: #e8d8c3; /* darker warm sand/brown, high contrast against white on all monitors */
+  --bg-light-sand: #efe2d2; 
   --border-light: #c8d5e2;
   --border-light-subtle: #dbe4ee;
   --text-light-primary: #0f172a;
