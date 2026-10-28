@@ -1146,50 +1146,53 @@ h4,
 
 /* ==========================================================================
    PARTNER SECTION LAYOUT (Aliurakointi & Sopimuskumppani)
-   Primary card: 2x width (Aliurakointi & Sopimuskumppanuus)
-   Right stack: Compact stacked cards (Tuntiveloitus & Kiinteä urakka)
+   Täysleveä sopimuskumppanuuskortti
    ========================================================================== */
-.partner-grid {
-  display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 28px;
-  align-items: stretch;
+.partner-full-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-.partner-primary-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.partner-full-card {
+  position: relative;
+  padding: 44px 40px;
+  border-radius: var(--radius-xl);
+}
+
+.partner-full-card .pricing-badge {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .partner-lead-quote {
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 1.08rem;
+  line-height: 1.65;
   color: var(--text-light-primary);
   background: rgba(196, 139, 82, 0.08);
-  border-left: 3px solid var(--brand-copper);
-  padding: 16px 20px;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  margin: 18px 0 24px;
+  border: none;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  margin: 20px 0 32px;
   font-weight: 500;
+  text-align: center;
 }
 
 .partner-highlights-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px 20px;
-  margin-bottom: 26px;
+  gap: 24px 36px;
+  margin-bottom: 34px;
 }
 
 .partner-highlight-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
 }
 
 .partner-highlight-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-sm);
   background: rgba(196, 139, 82, 0.15);
   color: var(--brand-copper-dark);
@@ -1201,77 +1204,63 @@ h4,
 }
 
 .partner-highlight-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .partner-highlight-title {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--text-light-primary);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .partner-highlight-desc {
-  font-size: 0.85rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--text-light-secondary);
 }
 
-.partner-side-stack {
+.partner-footer-action {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 24px;
+  padding-top: 12px;
+  border-top: none;
+  margin-top: 6px;
+  text-align: center;
 }
 
-.partner-compact-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 26px;
-}
+@media (max-width: 768px) {
+  .partner-full-card {
+    padding: 32px 20px;
+  }
 
-.partner-compact-card .pricing-card-header {
-  margin-bottom: 12px;
-}
-
-.partner-compact-card .pricing-amount-block {
-  margin: 10px 0 16px;
-  padding-bottom: 14px;
-}
-
-.partner-compact-card .pricing-amount {
-  font-size: 1.85rem;
-}
-
-.partner-compact-card .pricing-card-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 992px) {
-  .partner-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .partner-lead-quote {
+    font-size: 0.98rem;
+    padding: 16px 18px;
+    text-align: left;
   }
 
   .partner-highlights-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px;
   }
 
-  .partner-side-stack {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  .partner-footer-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    padding-top: 10px;
   }
-}
 
-@media (max-width: 600px) {
-  .partner-side-stack {
-    grid-template-columns: 1fr;
+  .partner-footer-action .btn {
+    width: auto;
+    min-width: 260px;
+    max-width: 100%;
   }
 }
 
