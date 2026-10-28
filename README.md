@@ -9,9 +9,9 @@ Modernisoitu, korkealaatuinen verkkosivusto Kovasähkö Oy:lle (Nokia & Pirkanma
 - **Moderni & arvokas brändi-ilme:** Hienostunut tumma/vaalea kontrastisuunnittelu, kuparin sävyt (`#c48b52`), responsiivinen typografia (Ubuntu & Plus Jakarta Sans).
 - **Interaktiivinen palvelukatalogi (12 palvelua):**
   - Auto (sähköauton lataus, lämmityspistorasiat ja -tolpat)
-  - Energia ja tilatekniikka (aurinkopaneelit, lämpöpumput, lattialämmitys, ilmanvaihtomoottorit, valaistusratkaisut)
+  - Energia ja talotekniikka (aurinkopaneelit, lämpöpumput, lattialämmitys, ilmanvaihtomoottorit, valaistusratkaisut)
   - Asennus ja huolto (sähkösaneeraukset, vikakorjaus, laiteasennukset)
-  - Tietoliikenne (datakaapelointi & tukiasemat, antennijärjestelmät)
+  - Tietoliikenne (datakaapelointi & tukiasemat, taloautomaatio)
 - **Kustannusarviolaskuri:**
   - Reaaliaikainen budjettiarvio (sähkökeskukset, latausasemat, aurinkosähkö ja tuntilaskuri).
   - Kotitalousvähennyksen (60 % työn osuudesta) automaattinen laskenta.

@@ -430,7 +430,7 @@
           <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Kaikki</button>
           <button class="filter-tab" data-filter="auto" role="tab" aria-selected="false">Auto</button>
           <button class="filter-tab" data-filter="energia" role="tab" aria-selected="false">Energia ja
-            tilatekniikka</button>
+            talotekniikka</button>
           <button class="filter-tab" data-filter="huolto" role="tab" aria-selected="false">Asennus ja huolto</button>
           <button class="filter-tab" data-filter="tietoliikenne" role="tab" aria-selected="false">Tietoliikenne</button>
         </div>
@@ -544,7 +544,7 @@
                   <circle cx="12" cy="12" r="2"></circle>
                 </svg>
               </div>
-              <span class="service-badge">Tilatekniikka</span>
+              <span class="service-badge">Talotekniikka</span>
             </div>
             <div class="service-card-body">
               <h3 class="service-card-title">Ilmastointimoottorit</h3>
@@ -578,7 +578,7 @@
                   <line x1="19.78" y1="4.22" x2="19.07" y2="4.93"></line>
                 </svg>
               </div>
-              <span class="service-badge">Tilatekniikka</span>
+              <span class="service-badge">Talotekniikka</span>
             </div>
             <div class="service-card-body">
               <h3 class="service-card-title">Valaistusratkaisut</h3>
@@ -787,8 +787,8 @@
             </div>
           </article>
 
-          <!-- 12. Antenni- ja puhelinjärjestelmät -->
-          <article class="service-card" data-category="tietoliikenne">
+          <!-- 12. Taloautomaatio -->
+          <article class="service-card" data-category="tietoliikenne energia">
             <div class="service-card-top">
               <div class="service-icon-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -800,18 +800,18 @@
                   <path d="M9 22h6"></path>
                 </svg>
               </div>
-              <span class="service-badge">Tietoliikenne</span>
+              <span class="service-badge">Ohjaus</span>
             </div>
             <div class="service-card-body">
-              <h3 class="service-card-title">Antenni- ja puhelinjärjestelmät</h3>
+              <h3 class="service-card-title">Taloautomaatio</h3>
               <p class="service-card-desc">
-                Asennamme, mittaamme ja saneeraamme pientalojen ja kiinteistöjen antenni- ja sisäverkkojärjestelmät
-                virheettömän ja häiriöttömän signaalin takaamiseksi.
+                Monipuolisia ratkaisuita mm. valaistuksen ja lämmityksen ohjaamiseen, esimerkiksi pörssisähkön hintaan
+                perustuen.
               </p>
               <div class="service-card-footer">
-                <span class="service-price-tag">Selkeä tuntiveloitus</span>
+                <span class="service-price-tag">Urakka tai tuntityö</span>
                 <a href="#kontakti" class="service-action-link">
-                  Tilaa mittaus
+                  Pyydä tarjous
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
@@ -922,10 +922,10 @@
                 <div class="calc-slider-wrapper">
                   <div class="calc-slider-header">
                     <label class="calc-label" for="calc-scope-range" id="calc-scope-label">Kohteen laajuus
-                      (sulakeryhmää)</label>
-                    <span class="calc-slider-val" id="calc-scope-val">24 sulakeryhmää</span>
+                      (sulaketta)</label>
+                    <span class="calc-slider-val" id="calc-scope-val">24 sulaketta</span>
                   </div>
-                  <input type="range" class="range-input" id="calc-scope-range" min="12" max="42" value="24" step="2"
+                  <input type="range" class="range-input" id="calc-scope-range" min="12" max="42" value="24" step="1"
                     aria-labelledby="calc-scope-label">
                 </div>
               </div>
@@ -948,27 +948,27 @@
 
               <div class="calc-breakdown-row">
                 <span>Arvioitu kokonaishinta (sis. alv):</span>
-                <strong id="calc-display-total">2 436 €</strong>
+                <strong id="calc-display-total">1 622&nbsp;€</strong>
               </div>
 
               <div class="calc-breakdown-row">
                 <span>Tarvikkeet &amp; laitteet:</span>
-                <span id="calc-display-materials">1 500 €</span>
+                <span id="calc-display-materials">660&nbsp;€</span>
               </div>
 
               <div class="calc-breakdown-row">
                 <span>Työn osuus (sis. alv):</span>
-                <span id="calc-display-labor">936 €</span>
+                <span id="calc-display-labor">962&nbsp;€</span>
               </div>
 
               <div class="calc-breakdown-row highlight-saving">
                 <span>Kotitalousvähennys:</span>
-                <span id="calc-display-deduction">- 562&nbsp;€</span>
+                <span id="calc-display-deduction">- 577&nbsp;€</span>
               </div>
 
               <div class="calc-breakdown-row total-row">
                 <span>Todelliset kulut:</span>
-                <span class="calc-net-price" id="calc-display-net">1 874&nbsp;€</span>
+                <span class="calc-net-price" id="calc-display-net">1 045&nbsp;€</span>
               </div>
 
               <button class="btn btn-primary" id="apply-estimate-btn" style="width: 100%;">
@@ -1029,155 +1029,136 @@
       </div>
     </section>
 
-    <!-- LIGHT SECTION: PRICING TRANSPARENCY & WARRANTY -->
-    <section class="pricing-section" id="hinnat" aria-labelledby="pricing-heading">
+    <!-- LIGHT SECTION: JOUSTAVA SOPIMUSKUMPPANI & ALIUROKOINTI -->
+    <div id="hinnat" style="position: relative; top: -80px; visibility: hidden;" aria-hidden="true"></div>
+    <section class="pricing-section" id="aliurakointi" aria-labelledby="pricing-heading">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title" id="pricing-heading">Sopivat raamit kaikille</h2>
+          <h2 class="section-title" id="pricing-heading">Joustava sopimuskumppani</h2>
           <p class="section-desc">
-            Meiltä saat sitä mitä tarvitset, itsellesi sopivalla mallilla. Tilaa asentaja paikalle, pyydä urakkatarjous
-            tai ota meistä timanttinen sopimuskumppani.
+            Kattava ja luotettava sähköurakoinnin kumppani yrityksille, taloyhtiöille ja rakennusliikkeille.
+            Tarjoamme joustavat yhteistyömallit aina aliurakoinnista ja huoltosopimuksista kiinteisiin urakoihin ja selkeään tuntityöhön.
           </p>
         </div>
 
-        <div class="pricing-grid">
+        <div class="partner-grid">
 
-          <!-- Column 1: Tuntityö -->
-          <div class="pricing-card pricing-slate">
-            <div class="pricing-card-header">
-              <h3 class="pricing-title">Tuntiveloitus</h3>
-              <p class="pricing-card-desc">Asennuksille, vianetsinnälle ja huoltotöille.</p>
+          <!-- Primary Card: Yritykset, Taloyhtiöt & Aliurakointi (2x width) -->
+          <div class="pricing-card featured pricing-copper partner-primary-card">
+            <div>
+              <div class="pricing-badge badge-copper">Sopimuskumppanuus &amp; Aliurakointi</div>
+              <div class="pricing-card-header">
+                <h3 class="pricing-title">Yritykset, taloyhtiöt &amp; Aliurakointi</h3>
+                <p class="pricing-card-desc">Sähköalan luotettava asiantuntija ja ammattitaitoiset kädet juuri silloin kun tarvitset.</p>
+              </div>
+
+              <div class="partner-lead-quote">
+                ”Joustava ja luotettava kumppani pystyy reagoimaan tilanteen vaatimassa aikataulussa ja laajuudessa, ilman tapauskohtaista sopimista tai juoksevia kuluja.”
+              </div>
+
+              <div class="partner-highlights-grid">
+                <div class="partner-highlight-item">
+                  <div class="partner-highlight-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="partner-highlight-title">Nopea reagointi &amp; saatavuus</div>
+                    <div class="partner-highlight-desc">Resurssit heti käytettävissä ruuhkahuippuihin, urakoihin ja äkillisiin tarpeisiin Nokialla ja Pirkanmaalla.</div>
+                  </div>
+                </div>
+
+                <div class="partner-highlight-item">
+                  <div class="partner-highlight-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="partner-highlight-title">Ei juoksevia kuluja</div>
+                    <div class="partner-highlight-desc">Valmis puitesopimus ilman tapauskohtaista paperisotaa tai sitovia kiinteitä kuukausikuluja.</div>
+                  </div>
+                </div>
+
+                <div class="partner-highlight-item">
+                  <div class="partner-highlight-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="partner-highlight-title">S2-pätevyys &amp; täysi vastuu</div>
+                    <div class="partner-highlight-desc">Tukesin virallinen urakoitsija. Täysi takuu, asianmukaiset käyttöönottopöytäkirjat ja lakisääteiset vastuut.</div>
+                  </div>
+                </div>
+
+                <div class="partner-highlight-item">
+                  <div class="partner-highlight-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="partner-highlight-title">Monipuolinen talotekniikka</div>
+                    <div class="partner-highlight-desc">Kiinteistösähköt, latausinfra, taloautomaatio, saneeraukset ja määräaikaishuollot saman katon alta.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pricing-amount-block">
+                <div class="pricing-amount">Sopimuksen mukaan</div>
+                <div class="pricing-sub">Kilpailukykyinen tunti- tai kohdekohtainen puitesopimus</div>
+              </div>
             </div>
-            <div class="pricing-amount-block">
-              <div class="pricing-amount">Tarpeen mukaan</div>
-            </div>
-            <ul class="pricing-features">
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Laskutus tehdyn työn mukaan
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Tukkuhintaiset asennustarvikkeet
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Täysi kotitalousvähennyskelpoisuus
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Täysi takuu työlle
-              </li>
-            </ul>
-            <a href="tel:+3584578385358" class="btn btn-slate">Tilaa sähkömies</a>
+
+            <a href="#kontakti" class="btn btn-primary partner-action-btn" data-preset="aliurakointi" style="width: 100%; text-align: center;">Ota yhteys ja sovi kumppanuudesta</a>
           </div>
 
-          <!-- Column 2: Kiinteä Urakka (Featured) -->
-          <div class="pricing-card featured pricing-copper">
-            <div class="pricing-card-header">
-              <h3 class="pricing-title">Kiinteä Urakkahinta</h3>
-              <p class="pricing-card-desc">Selkeästi määriteltäviin urakoihin.</p>
-            </div>
-            <div class="pricing-amount-block">
-              <div class="pricing-amount">Avaimet käteen</div>
-            </div>
-            <ul class="pricing-features">
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Sitova kokonaishinta, ei yllätyskuluja
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Työn osuus tarkasti eritelty
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Täydellinen dokumentaatio ja luovutus
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Täysi asennus- ja materiaalitakuu
-              </li>
-            </ul>
-            <a href="#kontakti" class="btn btn-primary">Pyydä kiinteä tarjous</a>
-          </div>
+          <!-- Side Stack: Tuntiveloitus & Kiinteä urakka (stacked vertically) -->
+          <div class="partner-side-stack">
 
-          <!-- Column 3: Yritykset & Aliurakointi -->
-          <div class="pricing-card pricing-slate">
-            <div class="pricing-card-header">
-              <h3 class="pricing-title">Yritykset &amp; Aliurakointi</h3>
-              <p class="pricing-card-desc">Yrityksille, taloyhtiöille ja rakennusliikkeille.</p>
+            <!-- Compact Card 1: Tuntityö -->
+            <div class="pricing-card pricing-slate partner-compact-card">
+              <div>
+                <div class="pricing-card-header">
+                  <h3 class="pricing-title">Tuntiveloitus</h3>
+                  <p class="pricing-card-desc">Asennuksiin, vianetsintään ja pienten kohteiden huoltotöihin.</p>
+                </div>
+                <div class="pricing-amount-block">
+                  <div class="pricing-amount">74 € <span style="font-size: 1.05rem; font-weight: 500; color: var(--text-light-secondary);">/ h</span></div>
+                  <div class="pricing-sub">Sisältää alv 25,5 % · Ei piilokuluja</div>
+                </div>
+                <p style="font-size: 0.92rem; color: var(--text-light-secondary); line-height: 1.5; margin-bottom: 20px;">
+                  Laskutus aina suoraan toteutuneen työn mukaan. Työn osuudesta täysi kotitalousvähennys (60 %). Tukkuhintaiset asennustarvikkeet ja täysi takuu työlle.
+                </p>
+              </div>
+              <a href="tel:+3584578385358" class="btn btn-slate" style="width: 100%; text-align: center;">Tilaa sähkömies</a>
             </div>
-            <div class="pricing-amount-block">
-              <div class="pricing-amount">Sopimushinta</div>
+
+            <!-- Compact Card 2: Kiinteä Urakka -->
+            <div class="pricing-card pricing-slate partner-compact-card">
+              <div>
+                <div class="pricing-card-header">
+                  <h3 class="pricing-title">Kiinteä Urakkahinta</h3>
+                  <p class="pricing-card-desc">Selkeästi määriteltäviin kokonaisuuksiin ja saneerauksiin.</p>
+                </div>
+                <div class="pricing-amount-block">
+                  <div class="pricing-amount">Avaimet käteen</div>
+                  <div class="pricing-sub">Sitova kokonaishinta · Ei yllätyskuluja</div>
+                </div>
+                <p style="font-size: 0.92rem; color: var(--text-light-secondary); line-height: 1.5; margin-bottom: 20px;">
+                  Kartoitamme kohteen ja laskemme sitovan kokonaiskustannuksen eriteltynä. Täysi asennus- ja materiaalitakuu sekä viralliset käyttöönottopöytäkirjat.
+                </p>
+              </div>
+              <a href="#kontakti" class="btn btn-slate partner-action-btn" data-preset="urakka" style="width: 100%; text-align: center;">Pyydä kiinteä tarjous</a>
             </div>
-            <ul class="pricing-features">
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Joustava ja luotettava kumppani
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Määräaikaistarkastukset ja kunnossapito
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Kilpailukykyinen ja perehtynyt toimija
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-                Takuu ja vastuut sopimuksen mukaan
-              </li>
-            </ul>
-            <a href="#kontakti" class="btn btn-slate">Ota yhteys hallintoon</a>
+
           </div>
 
         </div>
@@ -1202,7 +1183,7 @@
               </svg>
             </summary>
             <div class="faq-answer">
-              Pienemmissä sähköasennuksissa noudatamme selkeää ja kilpailukykyistä tuntiveloitusta ilman piilokuluja.
+              Pienemmissä sähköasennuksissa noudatamme selkeää ja kilpailukykyistä tuntiveloitusta (peruste 74 € / h, sis. alv 25,5 %) ilman piilokuluja.
               Laajemmissa kokonaisuuksissa (kuten sähkösaneeraukset, sähköautojen latausasemat ja kiinteistöurakat)
               teemme aina kiinteähintaisen tarjouksen maksuttoman kartoituksen jälkeen. Voit testata suuntaa-antavia
               hintoja yllä olevalla <a href="#laskuri"
@@ -1371,6 +1352,14 @@
 
             <form id="tarjouspyynto-lomake" novalidate>
 
+              <!-- Anti-spam Honeypot field for bot protection (hidden from humans) -->
+              <div class="form-anti-spam-trap" aria-hidden="true"
+                style="position: absolute; left: -9999px; top: -9999px; opacity: 0; width: 0; height: 0; pointer-events: none; overflow: hidden;">
+                <label for="form-yritys-varmenne">Jätä tämä kenttä tyhjäksi (roskapostisuodatus)</label>
+                <input type="text" id="form-yritys-varmenne" name="yritys_faksi_varmenne" tabindex="-1" autocomplete="off">
+                <input type="hidden" id="form-security-token" name="sec_token" value="">
+              </div>
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="form-nimi" class="form-label">Nimi <span class="required"
@@ -1401,7 +1390,7 @@
                       <option value="Sähköauton latausasema">Sähköauton latausasema</option>
                       <option value="Lämmityspistorasiat ja tolpat">Lämmityspistorasiat ja tolpat</option>
                     </optgroup>
-                    <optgroup label="Energia &amp; tilatekniikka">
+                    <optgroup label="Energia &amp; talotekniikka">
                       <option value="Aurinkopaneelijärjestelmä">Aurinkopaneelijärjestelmät</option>
                       <option value="Ilmalämpöpumput">Ilmalämpöpumput</option>
                       <option value="Sähköinen lattialämmitys">Sähköinen lattialämmitys</option>
@@ -1416,10 +1405,14 @@
                     </optgroup>
                     <optgroup label="Tietoliikenne">
                       <option value="Datakaapelointi ja tukiasemat">Datakaapelointi ja tukiasemat</option>
-                      <option value="Antenni- ja puhelinjärjestelmät">Antenni- ja puhelinjärjestelmät</option>
+                      <option value="Taloautomaatio">Taloautomaatio</option>
+                    </optgroup>
+                    <optgroup label="Yritykset &amp; Aliurakointi">
+                      <option value="Aliurakointi ja kumppanuus">Aliurakointi ja sopimuskumppanuus</option>
+                      <option value="Taloyhtiöt ja kiinteistöhuolto">Taloyhtiöt ja kiinteistöhuolto</option>
                     </optgroup>
                     <optgroup label="Muu sähkötyö">
-                      <option value="Muut sähkötyöt (ei tarvikekuluja)">Muut sähkötyöt / Tuntiveloitus</option>
+                      <option value="Muut sähkötyöt (ei tarvikekuluja)">Muut sähkötyöt / Tuntiveloitus (74 €/h)</option>
                       <option value="Yleinen yhteydenotto">Yleinen yhteydenotto tai kysymys</option>
                     </optgroup>
                   </select>
@@ -1483,7 +1476,7 @@
             <li><a href="#palvelut">Sähkösaneeraukset &amp; keskukset</a></li>
             <li><a href="#palvelut">Valaistusratkaisut</a></li>
             <li><a href="#palvelut">Vikatilanteet &amp; huoltotyöt</a></li>
-            <li><a href="#palvelut">Datakaapelointi &amp; antennit</a></li>
+            <li><a href="#palvelut">Datakaapelointi &amp; automaatio</a></li>
           </ul>
         </div>
 

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandLogo();
   initServiceFilters();
   initCostCalculator();
+  initPartnerActions();
   initContactForm();
   initFaqSchemaTracker();
 });
@@ -156,8 +157,9 @@ function initServiceFilters() {
 }
 
 /* ==========================================================================
-   Cost Estimator (Kustannusarviolaskuri)
-   Empowers customer with realistic Finnish market prices and tax deductions
+   Cost Estimator (Kustannusarviolaskuri / Hintalaskuri)
+   Tuntiveloituksen peruste: 74 €/h (sis. alv)
+   Sähkökaappien materiaalikulujen haarukka: 12 sulaketta 443 €, 30 sulaketta 769 €, 42 sulaketta 900 €
    ========================================================================== */
 function initCostCalculator() {
   const projectInputs = document.querySelectorAll('input[name="calc-project"]');
@@ -174,22 +176,32 @@ function initCostCalculator() {
 
   if (!projectInputs.length || !scopeRange) return;
 
-  // Configuration for the 4 requested electrical services
+  // Configuration for electrical services
   const projectData = {
     'panel-upgrade': {
       title: 'Sähkökeskuksen saneeraus',
-      unit: 'sulakeryhmää',
+      unit: 'sulaketta',
       min: 12,
       max: 42,
-      step: 2,
+      step: 1,
       default: 24,
-      baseMaterial: 900,
-      meterMaterial: 25,
+      getMaterials: (scope) => {
+        // Asiakaskohtainen liukumalogiikka:
+        // 12 sulaketta -> 443 €, 30 sulaketta -> 769 €, 42 sulaketta -> 900 €
+        if (scope <= 12) return 443;
+        if (scope <= 30) {
+          return Math.round(443 + (scope - 12) * ((769 - 443) / (30 - 12)));
+        }
+        if (scope <= 42) {
+          return Math.round(769 + (scope - 30) * ((900 - 769) / (42 - 30)));
+        }
+        return Math.round(900 + (scope - 42) * 11);
+      },
       baseLaborHours: 7,
       meterLaborHours: 0.25,
-      hourRate: 72,
+      hourRate: 74,
       eligibleForDeduction: true,
-      formatVal: (val) => `${val} sulakeryhmää`
+      formatVal: (val) => `${val} sulaketta`
     },
     'ev-charger': {
       title: 'Sähköauton lataus',
@@ -202,7 +214,7 @@ function initCostCalculator() {
       meterMaterial: 14,
       baseLaborHours: 3.5,
       meterLaborHours: 0.15,
-      hourRate: 72,
+      hourRate: 74,
       eligibleForDeduction: true,
       formatVal: (val) => `${val} m kaapelointia`
     },
@@ -217,7 +229,7 @@ function initCostCalculator() {
       meterMaterial: 550,
       baseLaborHours: 12,
       meterLaborHours: 1.5,
-      hourRate: 72,
+      hourRate: 74,
       eligibleForDeduction: true,
       formatVal: (val) => `${val} kWp (n. ${Math.round(val * 2.25)} paneelia)`
     },
@@ -232,9 +244,9 @@ function initCostCalculator() {
       meterMaterial: 0,
       baseLaborHours: 0,
       meterLaborHours: 1,
-      hourRate: 72,
+      hourRate: 74,
       eligibleForDeduction: true,
-      formatVal: (val) => `${val} työtuntia (72 €/h)`
+      formatVal: (val) => `${val} työtuntia (74 €/h)`
     }
   };
 
@@ -254,7 +266,9 @@ function initCostCalculator() {
     const config = projectData[currentProjectKey];
     const scope = parseFloat(scopeRange.value);
 
-    const materials = Math.round(config.baseMaterial + (scope * config.meterMaterial));
+    const materials = typeof config.getMaterials === 'function'
+      ? config.getMaterials(scope)
+      : Math.round(config.baseMaterial + (scope * config.meterMaterial));
     const laborHours = config.baseLaborHours + (scope * config.meterLaborHours);
     const labor = Math.round(laborHours * config.hourRate);
     const total = materials + labor;
@@ -328,7 +342,93 @@ Pyytäisin teiltä tarkempaa tarjousta tai maksutonta kartoituskäyntiä.`;
 }
 
 /* ==========================================================================
-   Contact Form Validation & Feedback Modal
+   Partner & Service Action Links (Pre-fill Contact Form)
+   ========================================================================== */
+function initPartnerActions() {
+  const presetButtons = document.querySelectorAll('[data-preset]');
+  presetButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const preset = btn.dataset.preset;
+      const serviceField = document.getElementById('form-palvelu');
+      const messageField = document.getElementById('form-viesti');
+      const contactSection = document.getElementById('kontakti');
+
+      if (preset === 'aliurakointi') {
+        if (serviceField) {
+          serviceField.value = 'Aliurakointi ja kumppanuus';
+        }
+        if (messageField) {
+          messageField.value = `Hei! Etsimme luotettavaa sähköalan sopimuskumppania / aliurakoitsijaa.
+
+- Yritys / Taloyhtiö / Tilaaja: 
+- Kohteen tyyppi ja paikkakunta: 
+- Tarvittava resurssi ja aikataulu: 
+
+Olisimme kiinnostuneita keskustelemaan yhteistyöstä.`;
+        }
+      } else if (preset === 'urakka') {
+        if (serviceField) {
+          serviceField.value = 'Sähkökeskuksen saneeraus';
+        }
+        if (messageField) {
+          messageField.value = `Hei! Haluaisimme kiinteähintaisen tarjouksen sähköurakasta.
+
+- Kohteen kuvaus ja osoite: 
+- Toivottu aikataulu: 
+
+Pyytäisimme tarjousta tai maksutonta kartoituskäyntiä kohteeseen.`;
+        }
+      }
+
+      if (contactSection) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          messageField?.focus();
+        }, 450);
+      }
+    });
+  });
+
+  // Also hook service card action links to pre-select their service in the contact form
+  const serviceActionLinks = document.querySelectorAll('.service-action-link');
+  serviceActionLinks.forEach(link => {
+    if (link.getAttribute('href') === '#kontakti') {
+      link.addEventListener('click', () => {
+        const card = link.closest('.service-card');
+        const titleEl = card ? card.querySelector('.service-card-title') : null;
+        if (!titleEl) return;
+        const title = titleEl.textContent.trim();
+
+        const serviceField = document.getElementById('form-palvelu');
+        const messageField = document.getElementById('form-viesti');
+
+        if (serviceField) {
+          // Attempt direct value match or find matching option text
+          let matched = false;
+          for (let i = 0; i < serviceField.options.length; i++) {
+            if (serviceField.options[i].text.toLowerCase().includes(title.toLowerCase()) ||
+                title.toLowerCase().includes(serviceField.options[i].value.toLowerCase())) {
+              serviceField.selectedIndex = i;
+              matched = true;
+              break;
+            }
+          }
+          if (!matched) {
+            serviceField.value = title;
+          }
+        }
+
+        if (messageField && (!messageField.value || messageField.value.trim() === '')) {
+          messageField.value = `Hei! Olen kiinnostunut palvelustanne: ${title}.\n\n- Kohteen osoite / sijainti:\n- Toivottu aikataulu:\n`;
+        }
+      });
+    }
+  });
+}
+
+/* ==========================================================================
+   Contact Form Validation, Anti-Spam Protection & Feedback Modal
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('tarjouspyynto-lomake');
@@ -337,10 +437,64 @@ function initContactForm() {
 
   if (!form) return;
 
+  // Anti-spam timing & interaction detection
+  let formStartTime = Date.now();
+  let hasInteractedHumanly = false;
+
+  const markHumanInteraction = () => {
+    hasInteractedHumanly = true;
+    const tokenInput = document.getElementById('form-security-token');
+    if (tokenInput && !tokenInput.value) {
+      tokenInput.value = 'sec_' + Math.random().toString(36).substring(2, 10);
+    }
+  };
+
+  ['focusin', 'keydown', 'touchstart', 'mousedown'].forEach(evt => {
+    form.addEventListener(evt, markHumanInteraction, { once: true, passive: true });
+  });
+
+  const simulateSubmissionSuccess = () => {
+    form.reset();
+    formStartTime = Date.now();
+    hasInteractedHumanly = false;
+    const tokenInput = document.getElementById('form-security-token');
+    if (tokenInput) tokenInput.value = '';
+
+    if (modal) {
+      modal.classList.add('active');
+      modalCloseBtn?.focus();
+    }
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Check validity
+    // 1. Honeypot check: automated spambots populate invisible fields
+    const honeypot = form.querySelector('input[name="yritys_faksi_varmenne"]');
+    if (honeypot && honeypot.value.trim() !== '') {
+      console.warn('Roskaposti havaittu (honeypot-suodatus).');
+      // Silently pretend success to prevent spammers from discovering countermeasures
+      simulateSubmissionSuccess();
+      return;
+    }
+
+    // 2. Timing check: bots send payload in milliseconds
+    const elapsedSeconds = (Date.now() - formStartTime) / 1000;
+    if (elapsedSeconds < 1.2) {
+      console.warn('Lomake lähetetty liian nopeasti (automatisoitu robotti).');
+      simulateSubmissionSuccess();
+      return;
+    }
+
+    // 3. User interaction check
+    const tokenInput = document.getElementById('form-security-token');
+    if (!hasInteractedHumanly && (!tokenInput || !tokenInput.value)) {
+      console.warn('Ei ihmisvuorovaikutusta havaittu.');
+      simulateSubmissionSuccess();
+      return;
+    }
+
+    // 4. HTML5 Validity check
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -355,12 +509,7 @@ function initContactForm() {
     setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
-      form.reset();
-
-      if (modal) {
-        modal.classList.add('active');
-        modalCloseBtn?.focus();
-      }
+      simulateSubmissionSuccess();
     }, 600);
   });
 
