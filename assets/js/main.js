@@ -443,8 +443,8 @@ Pyytäisimme tarjousta tai maksutonta kartoituskäyntiä kohteeseen.`;
    Contact Form Validation, Anti-Spam Protection & Feedback Modal
    ========================================================================== */
 function initContactForm() {
-  // Vastaanottava sähköpostiosoite (testivaiheessa imago@laaki.fi, tuotannossa esim. kontakti@kovasahko.fi)
-  const FORM_RECIPIENT_EMAIL = 'imago@laaki.fi';
+  // Vastaanottava sähköpostiosoite
+  const FORM_RECIPIENT_EMAIL = 'kontakti@kovasahko.fi';
   const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORM_RECIPIENT_EMAIL}`;
 
   const form = document.getElementById('tarjouspyynto-lomake');
