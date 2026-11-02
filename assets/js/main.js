@@ -553,9 +553,13 @@ function initContactForm() {
       });
 
       const result = await response.json().catch(() => ({}));
+      const msg = (result.message || '').toString();
 
-      if (!response.ok || result.success === 'false' || result.success === false) {
-        throw new Error(result.message || 'Lomakkeen lähetys epäonnistui.');
+      // Ensimmäisellä lähetyskerralla FormSubmit palauttaa success: "false" ja lähettää aktivointilinkin sähköpostiin
+      const isPendingActivation = msg.toLowerCase().includes('activation') || msg.toLowerCase().includes('activate');
+
+      if (!response.ok || ((result.success === 'false' || result.success === false) && !isPendingActivation)) {
+        throw new Error(msg || 'Lomakkeen lähetys epäonnistui.');
       }
 
       handleSubmissionSuccess();
