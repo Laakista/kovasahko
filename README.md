@@ -44,4 +44,4 @@ npm run preview
 - Työnjohto Marko: 045 7838 5358
 - Hallinto Jouni: 050 470 6011
 - Sähköposti: kontakti@kovasahko.fi
-- Y-tunnus: 3192271-8 · Tukes S2 -sertifioitu sähköurakointi
+- Y-tunnus: 3200958-7 · Tukes S2 -sertifioitu sähköurakointi

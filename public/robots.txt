@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://kovasahko.fi/sitemap.xml
+# LLMs.txt: https://kovasahko.fi/llms.txt

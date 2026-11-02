@@ -1,0 +1,66 @@
+# Kovasähkö Oy
+
+> Kovasähkö Oy on Nokialla ja koko Pirkanmaan alueella toimiva Tukes S2 -sertifioitu sähköurakoitsija ja sähköasennusliike. Yritys toteuttaa kaikki sähkötyöt, sähkösaneeraukset, sähköautojen latausasemat, aurinkosähköjärjestelmät, talotekniikan sekä aliurakoinnin kotitalouksille, taloyhtiöille ja yrityksille.
+
+## Yrityksen perustiedot
+
+- **Virallinen nimi:** Kovasähkö Oy
+- **Y-tunnus:** 3200958-7
+- **Pätevyys ja luvat:** Tukesin rekisteröimä virallinen sähköurakoitsija, S2-sähköpätevyys (kaikki enintään 1 000 V sähkötyöt ja -urakointi)
+- **Kotipaikka ja toimisto:** Rattikatu 3 H 6, 37150 Nokia, Suomi
+- **Toiminta-alue:** Nokia, Tampere, Pirkkala, Ylöjärvi, Kangasala, Lempäälä, Sastamala ja koko Pirkanmaa
+- **Aukiolo ja päivystys:** Arkisin ma–pe klo 07:00–16:30
+- **Verkkosivusto:** [https://kovasahko.fi/](https://kovasahko.fi/)
+- **Yleinen sähköposti:** kontakti@kovasahko.fi
+
+## Avainhenkilöt ja suorat yhteystiedot
+
+- **Marko Pääkkönen** – Työnjohto & asennustarjoukset: +358 45 7838 5358 (`045 7838 5358`)
+- **Jouni Kovanen** – Hallinto & yritysasiakkuudet / sopimuskumppanuudet: +358 50 470 6011 (`050 470 6011`)
+
+## Palvelukokonaisuudet (12 pääpalvelua)
+
+### 1. Energia ja talotekniikka
+- **Aurinkopaneelijärjestelmät:** Aurinkosähköjärjestelmät inverttereineen ja verkkoliityntöineen avaimet käteen -toimituksena pientaloille ja kiinteistöille.
+- **Ilmalämpöpumput:** Energiatehokkaiden ilmalämpöpumppujen asennus ja sähköistys lämmitykseen ja viilennykseen.
+- **Sähköinen lattialämmitys:** Lattialämmityskaapelien ja -mattojen asennus sekä rikkoutuneiden termostaattien vaihto nykyaikaisiin, energiaa säästäviin malleihin.
+- **Ilmastointimoottorit:** Ilmanvaihtokoneiden moottoreiden, huippuimureiden sekä puhaltimien nopeussäätimien ja ohjausten vaihto ja huolto.
+- **Valaistusratkaisut (sisällä ja ulkona):** Energiatehokkaat LED-valaistukset, liiketunnistimet, hämäräkytkimet ja pihavalot koteihin, pihoille ja toimitiloihin.
+- **Taloautomaatio ja ohjaus:** Älykkäät ohjausratkaisut valaistuksen ja lämmityksen ohjaamiseen (esim. pörssisähkön tuntihintaan perustuva automaatio).
+
+### 2. Auto ja sähköinen liikkuminen
+- **Sähköauton lataus:** Turvalliset 11–22 kW sähköautojen latausasemat dynaamisella kuormanhallinnalla omakotitaloihin, taloyhtiöihin ja yrityksille.
+- **Lämmityspistorasiat ja tolpat:** Autolämmitystolppien ja -rasioiden asennukset, ajastinkellojen uusimiset, muutostyöt ja huollot.
+
+### 3. Sähköasennus, saneeraus ja huolto
+- **Sähkösaneeraukset ja keskusuudistukset:** Vanhentuneiden johdotusten, ryhmäkeskusten ja pääkeskusten uusiminen nykyaikaisten turvamääräysten mukaisiksi (vikavirtasuojaus, ylijännitesuojaus).
+- **Vikatilanteet ja huolto:** Sähkövikojen, oikosulkujen ja toimintahäiriöiden paikannus ja korjaus nopealla vasteajalla ja ammattitason mittalaitteistolla.
+- **Laiteasennukset ja kytkentä:** Sähkökiukaiden, induktiotasojen, erillisuunien ja muiden kodinkoneiden turvalliset kytkennät.
+
+### 4. Tietoliikenne ja verkot
+- **Datakaapelointi ja tukiasemat:** Nopeat ja häiriöttömät Cat6/Cat6A- ja valokuituyhteydet, yleiskaapeloinnit, kytkentäkaapit sekä WiFi-tukiasemat koteihin ja toimitiloihin.
+
+### 5. Yritykset, taloyhtiöt ja aliurakointi
+- **Joustava sopimuskumppanuus ja aliurakointi:** Jatkuva kumppanuus rakennusliikkeille, isännöitsijöille, taloyhtiöille ja yrityksille Pirkanmaalla. Nopea vasteaika ruuhkahuippuihin, määräaikaishuoltoihin ja kiinteistöurakoihin.
+
+## Hinnoittelu, kustannuslaskuri ja kotitalousvähennys
+
+- **Tuntiveloitus:** Pienemmissä asennus- ja huoltotöissä selkeä tuntiveloitus **74 € / h** (sis. alv 25,5 %).
+- **Urakkahinnoittelu:** Laajemmissa kokonaisuuksissa (kuten sähkökeskussaneeraukset, latausasemat, aurinkopaneelit ja kiinteistöurakat) kiinteähintainen tarjous maksuttoman kartoituskäynnin perusteella.
+- **Suuntaa-antavia esimerkkejä sivuston hintalaskurista (sis. alv):**
+  - *Sähkökeskuksen saneeraus (esim. 24 sulaketta):* Arvioitu kokonaishinta n. 1 622 € (tarvikkeet n. 660 €, työ n. 962 €), kotitalousvähennyksen jälkeen n. 1 045 €.
+  - *Sähköauton latausasema (esim. 15 m kaapeloinnilla):* Arvioitu kokonaishinta n. 1 322 € (tarvikkeet n. 900 €, työ n. 422 €), kotitalousvähennyksen jälkeen n. 1 069 €.
+  - *Aurinkopaneelijärjestelmä (esim. 8 kWp / n. 18 paneelia):* Arvioitu kokonaishinta n. 7 376 € (tarvikkeet n. 5 600 €, työ n. 1 776 €), kotitalousvähennyksen jälkeen n. 6 310 €.
+- **Kotitalousvähennys:** Kaikki kotitalouksille ja vapaa-ajan asunnoille tehtävät sähköasennus- ja saneeraustyöt ovat kotitalousvähennyskelpoisia (60 % työn arvonlisäverollisesta osuudesta). Kovasähkö Oy erittelee työn ja tarvikkeiden osuudet valmiiksi jokaisella laskulla.
+- **Takuu ja dokumentointi:** 100 % tyytyväisyys- ja työtakuu. Kaikista asennuksista toimitetaan sähköturvallisuuslain mukainen virallinen mittaus- ja käyttöönottotarkastuspöytäkirja.
+
+## Sivuston rakenne ja suorat ankkurilinkit
+
+- [Etusivu](https://kovasahko.fi/): Yleiskuvaus, pikayhteystiedot ja sertifioinnit
+- [Palvelut](https://kovasahko.fi/#palvelut): 12 sähköpalvelun katalogi kategorioittain (Auto, Energia ja talotekniikka, Asennus ja huolto, Tietoliikenne)
+- [Hintalaskuri](https://kovasahko.fi/#laskuri): Interaktiivinen kustannusarviolaskuri ja kotitalousvähennyslaskuri
+- [Toimintatapa](https://kovasahko.fi/#prosessi): 4-vaiheinen tilaus- ja asennusprosessi
+- [Aliurakointi & Yritykset](https://kovasahko.fi/#aliurakointi): Sopimuskumppanuus taloyhtiöille, rakennusliikkeille ja yrityksille
+- [Usein kysytyt kysymykset (UKK)](https://kovasahko.fi/#ukk): Kysymyksiä ja vastauksia hinnoittelusta, vasteajoista, pöytäkirjoista ja kotitalousvähennyksestä
+- [Yhteystiedot ja tarjouspyyntölomake](https://kovasahko.fi/#kontakti): Suorat puhelinnumerot ja sähköinen tarjouspyyntölomake
+

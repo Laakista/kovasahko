@@ -29,6 +29,7 @@
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="./assets/images/logo-symbol.svg">
+  <link rel="alternate" type="text/plain" href="https://kovasahko.fi/llms.txt" title="LLMs.txt - AI &amp; Kielimallitiedot">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -48,6 +49,8 @@
         "description": "Kovasähkö Oy on Nokialla ja koko Pirkanmaan alueella toimiva S2-sertifioitu sähköurakoitsija, joka palvelee kotitalouksia, taloyhtiöitä ja liikekiinteistöjä.",
         "telephone": "+3584578385358",
         "email": "kontakti@kovasahko.fi",
+        "taxID": "3200958-7",
+        "vatID": "FI32009587",
         "priceRange": "€€",
         "paymentAccepted": "Lasku, Pankkisiirto",
         "address": {
@@ -175,8 +178,8 @@
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Antenni- ja puhelinjärjestelmät",
-                "description": "Asennamme, mittaamme ja saneeraamme pientalojen ja kiinteistöjen antenni- ja sisäverkkojärjestelmät virheettömän ja häiriöttömän signaalin takaamiseksi."
+                "name": "Taloautomaatio ja ohjaus",
+                "description": "Monipuolisia ratkaisuita mm. valaistuksen ja lämmityksen ohjaamiseen, esimerkiksi pörssisähkön hintaan perustuen."
               }
             }
           ]
@@ -1203,7 +1206,7 @@
 
           <details class="faq-item">
             <summary class="faq-summary">
-              Otattetko vastaan myös taloyhtiöiden ja yritysten urakoita?
+              Otatteko vastaan myös taloyhtiöiden ja yritysten urakoita?
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 aria-hidden="true">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -1314,7 +1317,7 @@
             <h3>Pyydä tarjous tai kartoitus</h3>
             <p>Täytä lomake vapaasti. Olemme yhteydessä mahdollisimman pian.</p>
 
-            <form id="tarjouspyynto-lomake" novalidate>
+            <form id="tarjouspyynto-lomake" action="https://formsubmit.co/imago@laaki.fi" method="POST" novalidate>
 
               <!-- Anti-spam Honeypot field for bot protection (hidden from humans) -->
               <div class="form-anti-spam-trap" aria-hidden="true"

@@ -180,6 +180,7 @@ function initCostCalculator() {
   const projectData = {
     'panel-upgrade': {
       title: 'Sähkökeskuksen saneeraus',
+      formServiceValue: 'Sähkökeskuksen saneeraus',
       unit: 'sulaketta',
       min: 12,
       max: 42,
@@ -205,6 +206,7 @@ function initCostCalculator() {
     },
     'ev-charger': {
       title: 'Sähköauton lataus',
+      formServiceValue: 'Sähköauton latausasema',
       unit: 'm kaapelointia',
       min: 5,
       max: 40,
@@ -220,6 +222,7 @@ function initCostCalculator() {
     },
     'solar-system': {
       title: 'Aurinkopaneelit',
+      formServiceValue: 'Aurinkopaneelijärjestelmä',
       unit: 'kWp teho',
       min: 4,
       max: 16,
@@ -235,6 +238,7 @@ function initCostCalculator() {
     },
     'hourly-work': {
       title: 'Asennus & huolto',
+      formServiceValue: 'Muut sähkötyöt (ei tarvikekuluja)',
       unit: 'työtuntia',
       min: 2,
       max: 40,
@@ -285,7 +289,15 @@ function initCostCalculator() {
     displayNet.textContent = `${formatEur(net)}\u00A0€`;
 
     const scopeStr = config.formatVal ? config.formatVal(scope) : `${scope} ${config.unit}`;
-    return { title: config.title, scope: scopeStr, total, labor, deduction, net };
+    return {
+      title: config.title,
+      formServiceValue: config.formServiceValue || config.title,
+      scope: scopeStr,
+      total,
+      labor,
+      deduction,
+      net
+    };
   };
 
   const formatEur = (val) => {
@@ -314,7 +326,7 @@ function initCostCalculator() {
       const serviceField = document.getElementById('form-palvelu');
 
       if (serviceField) {
-        serviceField.value = result.title;
+        serviceField.value = result.formServiceValue;
       }
 
       if (messageField) {
@@ -431,6 +443,10 @@ Pyytäisimme tarjousta tai maksutonta kartoituskäyntiä kohteeseen.`;
    Contact Form Validation, Anti-Spam Protection & Feedback Modal
    ========================================================================== */
 function initContactForm() {
+  // Vastaanottava sähköpostiosoite (testivaiheessa imago@laaki.fi, tuotannossa esim. kontakti@kovasahko.fi)
+  const FORM_RECIPIENT_EMAIL = 'imago@laaki.fi';
+  const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORM_RECIPIENT_EMAIL}`;
+
   const form = document.getElementById('tarjouspyynto-lomake');
   const modal = document.getElementById('kiitos-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -453,7 +469,7 @@ function initContactForm() {
     form.addEventListener(evt, markHumanInteraction, { once: true, passive: true });
   });
 
-  const simulateSubmissionSuccess = () => {
+  const handleSubmissionSuccess = () => {
     form.reset();
     formStartTime = Date.now();
     hasInteractedHumanly = false;
@@ -466,7 +482,7 @@ function initContactForm() {
     }
   };
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // 1. Honeypot check: automated spambots populate invisible fields
@@ -474,7 +490,7 @@ function initContactForm() {
     if (honeypot && honeypot.value.trim() !== '') {
       console.warn('Roskaposti havaittu (honeypot-suodatus).');
       // Silently pretend success to prevent spammers from discovering countermeasures
-      simulateSubmissionSuccess();
+      handleSubmissionSuccess();
       return;
     }
 
@@ -482,7 +498,7 @@ function initContactForm() {
     const elapsedSeconds = (Date.now() - formStartTime) / 1000;
     if (elapsedSeconds < 1.2) {
       console.warn('Lomake lähetetty liian nopeasti (automatisoitu robotti).');
-      simulateSubmissionSuccess();
+      handleSubmissionSuccess();
       return;
     }
 
@@ -490,7 +506,7 @@ function initContactForm() {
     const tokenInput = document.getElementById('form-security-token');
     if (!hasInteractedHumanly && (!tokenInput || !tokenInput.value)) {
       console.warn('Ei ihmisvuorovaikutusta havaittu.');
-      simulateSubmissionSuccess();
+      handleSubmissionSuccess();
       return;
     }
 
@@ -501,16 +517,57 @@ function initContactForm() {
     }
 
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
+    const originalHtml = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Lähetetään...';
 
-    // Simulate reliable dispatch
-    setTimeout(() => {
+    const formData = new FormData(form);
+    const senderName = (formData.get('nimi') || '').toString().trim();
+    const senderPhone = (formData.get('puhelin') || '').toString().trim();
+    const senderEmail = (formData.get('email') || '').toString().trim();
+    const selectedService = (formData.get('palvelu') || 'Ei valittu').toString().trim();
+    const location = (formData.get('osoite') || 'Ei ilmoitettu').toString().trim();
+    const message = (formData.get('viesti') || '').toString().trim();
+
+    const payload = {
+      _subject: `Tarjouspyyntö (Kovasähkö.fi): ${selectedService} – ${senderName}`,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: senderEmail,
+      Nimi: senderName,
+      Puhelinnumero: senderPhone,
+      Sähköposti: senderEmail,
+      'Palvelu / Aihe': selectedService,
+      'Kohteen sijainti': location,
+      Viesti: message
+    };
+
+    try {
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.success === 'false' || result.success === false) {
+        throw new Error(result.message || 'Lomakkeen lähetys epäonnistui.');
+      }
+
+      handleSubmissionSuccess();
+    } catch (error) {
+      console.error('Virhe lomakkeen lähetyksessä:', error);
+      alert(
+        'Viestin lähetyksessä tapahtui yhteysvirhe. Voit soittaa suoraan numeroon 045 7838 5358 tai lähettää sähköpostia osoitteeseen kontakti@kovasahko.fi.'
+      );
+    } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      simulateSubmissionSuccess();
-    }, 600);
+      submitBtn.innerHTML = originalHtml;
+    }
   });
 
   if (modal && modalCloseBtn) {
