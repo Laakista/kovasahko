@@ -443,9 +443,9 @@ Pyytäisimme tarjousta tai maksutonta kartoituskäyntiä kohteeseen.`;
    Contact Form Validation, Anti-Spam Protection & Feedback Modal
    ========================================================================== */
 function initContactForm() {
-  // Vastaanottava sähköpostiosoite
-  const FORM_RECIPIENT_EMAIL = 'kontakti@kovasahko.fi';
-  const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORM_RECIPIENT_EMAIL}`;
+  // Google Apps Script Web App -päätepiste (ohjaa suoraan määriteltyyn sähköpostiin ilman kolmannen osapuolen rajoituksia)
+  const FORM_ENDPOINT =
+    'https://script.google.com/macros/s/AKfycbw6Xj6V-tkJNilvAAAXQYKypjjvvSK0zWXOByl4y0Io5ZlVQYDZzCAtJSnq9HUBmpzxPw/exec';
 
   const form = document.getElementById('tarjouspyynto-lomake');
   const modal = document.getElementById('kiitos-modal');
@@ -543,23 +543,20 @@ function initContactForm() {
     };
 
     try {
-      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+      // Käytetään text/plain Content-Typeä, jotta selain ei tee CORS OPTIONS -preflightia Google Apps Scriptiin,
+      // mutta runko (e.postData.contents) pysyy silti puhtaana JSON-merkkijonona.
+      const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
+          'Content-Type': 'text/plain;charset=utf-8'
         },
         body: JSON.stringify(payload)
       });
 
       const result = await response.json().catch(() => ({}));
-      const msg = (result.message || '').toString();
 
-      // Ensimmäisellä lähetyskerralla FormSubmit palauttaa success: "false" ja lähettää aktivointilinkin sähköpostiin
-      const isPendingActivation = msg.toLowerCase().includes('activation') || msg.toLowerCase().includes('activate');
-
-      if (!response.ok || ((result.success === 'false' || result.success === false) && !isPendingActivation)) {
-        throw new Error(msg || 'Lomakkeen lähetys epäonnistui.');
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || 'Lomakkeen lähetys epäonnistui.');
       }
 
       handleSubmissionSuccess();
